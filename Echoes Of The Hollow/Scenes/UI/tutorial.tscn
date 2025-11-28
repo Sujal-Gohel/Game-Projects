@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=3 uid="uid://ix7hjc6dic5y"]
+
+[ext_resource type="Script" uid="uid://c2lmhqj1q5i83" path="res://Scripts/UI/tutorial.gd" id="1_sb71i"]
+[ext_resource type="FontFile" uid="uid://05u0nmyusrwo" path="res://Assets/Texts/PixelatedPusab.ttf" id="4_wvmhp"]
+[ext_resource type="Texture2D" uid="uid://yhuyfob5yua5" path="res://Assets/UI/20251101_213925.png" id="5_jfyr4"]
+[ext_resource type="Texture2D" uid="uid://c53v0bsxc4eit" path="res://Assets/UI/KeyboardKeys/SPACE.png" id="6_5avan"]
+[ext_resource type="Texture2D" uid="uid://lkl0geya1m8l" path="res://Assets/UI/20251101_214641.png" id="6_c2ayv"]
+[ext_resource type="Texture2D" uid="uid://btvq3qjudd2kd" path="res://Assets/UI/20251101_214320.png" id="7_8vphl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sb71i"]
+font = ExtResource("4_wvmhp")
+font_size = 128
+font_color = Color(0.21840002, 0.72, 0.03600001, 1)
+outline_size = 40
+outline_color = Color(0.058333337, 0.25, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfyr4"]
+atlas = ExtResource("6_5avan")
+region = Rect2(0, 0, 98, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ayv"]
+atlas = ExtResource("6_5avan")
+region = Rect2(98, 0, 98, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vphl"]
+atlas = ExtResource("6_5avan")
+region = Rect2(196, 0, 98, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7cfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfyr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ayv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vphl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5avan"]
+resource_name = "show"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tutorial:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jfyr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tutorial:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2ayv"]
+_data = {
+&"RESET": SubResource("Animation_jfyr4"),
+&"show": SubResource("Animation_5avan")
+}
+
+[node name="Tutorial" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_sb71i")
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="BoxContainer" type="BoxContainer" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 250.0
+offset_right = 2128.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/BoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_jfyr4")
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial/BoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_8vphl")
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial/BoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_c2ayv")
+
+[node name="BoxContainer2" type="BoxContainer" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Tutorial/BoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "MOVE   "
+label_settings = SubResource("LabelSettings_sb71i")
+
+[node name="Label2" type="Label" parent="Tutorial/BoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "   JUMP   "
+label_settings = SubResource("LabelSettings_sb71i")
+
+[node name="Label3" type="Label" parent="Tutorial/BoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "   ATTACK"
+label_settings = SubResource("LabelSettings_sb71i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tutorial"]
+position = Vector2(1537, 925)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_a7cfn")
+frame_progress = 0.044297926
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c2ayv")
+}

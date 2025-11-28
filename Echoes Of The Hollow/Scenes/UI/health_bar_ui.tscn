@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://egyq5kgafsa3"]
+
+[ext_resource type="Texture2D" uid="uid://dvi3venseajp7" path="res://Assets/UI/ValueBar_128x16.png" id="1_k7bqn"]
+[ext_resource type="Texture2D" uid="uid://bn3a74vhwv8jk" path="res://Assets/UI/ValueBlue_120x8.png" id="2_28wgp"]
+[ext_resource type="Texture2D" uid="uid://plnne3vhm8ig" path="res://Assets/UI/ValueRed_120x8.png" id="2_crfkw"]
+[ext_resource type="Script" uid="uid://cjq3gy1ygk5jp" path="res://Scripts/UI/health_bar_ui.gd" id="3_28wgp"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+z_index = 1
+offset_right = 128.0
+offset_bottom = 27.0
+value = 50.0
+texture_over = ExtResource("1_k7bqn")
+texture_progress = ExtResource("2_28wgp")
+texture_progress_offset = Vector2(4, 4)
+script = ExtResource("3_28wgp")
+
+[node name="DamageBar" type="TextureProgressBar" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 27.0
+value = 60.0
+texture_over = ExtResource("1_k7bqn")
+texture_progress = ExtResource("2_crfkw")
+texture_progress_offset = Vector2(0, 4)
+tint_progress = Color(100, 100, 100, 0.906)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

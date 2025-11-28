@@ -1,0 +1,14 @@
+Label
+ColorRect
+AnimatedSprite2D
+AnimationPlayer
+CanvasLayer
+CanvasModulate
+VBoxContainer
+HBoxContainer
+BoxContainer
+TextEdit
+TextureRect
+Control
+Node2D
+Node

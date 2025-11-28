@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://36j0b5exyw6d"]
+
+[ext_resource type="Texture2D" uid="uid://b57f5mghdk7iw" path="res://Assets/UI/mobile-controls-1/Sprites/Style E/Large (2×)/button_circle.png" id="2_urtt7"]
+[ext_resource type="Texture2D" uid="uid://dc1c0sm8akxqa" path="res://Assets/UI/mobile-controls-1/Sprites/Icons/Large (2×)/icon_burst.png" id="3_cavgi"]
+[ext_resource type="Texture2D" uid="uid://dv86tqdkq3e4f" path="res://Assets/UI/mobile-controls-1/Sprites/Icons/Large (2×)/icon_jump.png" id="4_2hknr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejwpf"]
+radius = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr5wo"]
+radius = 65.0
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="attack" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(1415, 895)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_ejwpf")
+action = "attack"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/attack"]
+texture = ExtResource("2_urtt7")
+region_rect = Rect2(773, 0, 255, 257)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/attack"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_cavgi")
+
+[node name="jump" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(1669, 762)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_yr5wo")
+action = "jump"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/jump"]
+texture = ExtResource("2_urtt7")
+region_rect = Rect2(32, 208, 32, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/jump"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_2hknr")
+region_rect = Rect2(32, 208, 32, 32)

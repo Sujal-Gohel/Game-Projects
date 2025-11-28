@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Enemy_Resource" load_steps=2 format=3 uid="uid://cetnxeratao5x"]
+
+[ext_resource type="Script" uid="uid://dck4uwhcogidg" path="res://Scripts/Resources/enemy_resource.gd" id="1_ytog1"]
+
+[resource]
+script = ExtResource("1_ytog1")
+health = 10.0
+damage = 10.0
+slide_speed = 800.0
+move_speed = 200.0
+chase_speed = 300.0
+attack_frame = 5
+type = 0
+gravity = 800.0
+metadata/_custom_type_script = "uid://dck4uwhcogidg"

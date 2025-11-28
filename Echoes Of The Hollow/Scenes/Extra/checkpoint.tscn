@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=3 uid="uid://ckrpdigfr1fqn"]
+
+[ext_resource type="Script" uid="uid://y8ji3ymoaw71" path="res://Scripts/Levels/checkpoint.gd" id="1_3b3tp"]
+[ext_resource type="Texture2D" uid="uid://bt75bkg82lrk5" path="res://Assets/Player/Cyborg_idle.png" id="2_iyoe8"]
+[ext_resource type="FontFile" uid="uid://bjtoaaby76kjf" path="res://Assets/Texts/Cream Beige.otf" id="3_kmqaj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyoe8"]
+atlas = ExtResource("2_iyoe8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmqaj"]
+atlas = ExtResource("2_iyoe8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir144"]
+atlas = ExtResource("2_iyoe8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym1lr"]
+atlas = ExtResource("2_iyoe8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5h7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyoe8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmqaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir144")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym1lr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cwi7"]
+size = Vector2(50, 45)
+
+[sub_resource type="LabelSettings" id="LabelSettings_de23q"]
+font = ExtResource("3_kmqaj")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(1, 1, 1, 0.29803923)
+shadow_offset = Vector2(2, 1)
+
+[sub_resource type="Animation" id="Animation_n58mx"]
+resource_name = "FadeIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 15), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("UI:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q0ilr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsvs8"]
+_data = {
+&"FadeIn": SubResource("Animation_n58mx"),
+&"RESET": SubResource("Animation_q0ilr")
+}
+
+[sub_resource type="Gradient" id="Gradient_7g0yx"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.34137386, 1)
+colors = PackedColorArray(1, 1, 1, 0.627451, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kmqaj"]
+gradient = SubResource("Gradient_7g0yx")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CheckPoint" type="Area2D"]
+z_index = -2
+scale = Vector2(3, 3)
+script = ExtResource("1_3b3tp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -24)
+sprite_frames = SubResource("SpriteFrames_u5h7s")
+autoplay = "default"
+frame_progress = 0.930452
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22.5)
+shape = SubResource("RectangleShape2D_2cwi7")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -49.0
+offset_top = -67.0
+offset_right = 713.0
+offset_bottom = 68.0
+scale = Vector2(0.15, 0.15)
+text = "[E] To Save"
+label_settings = SubResource("LabelSettings_de23q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bsvs8")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(5, 3)
+color = Color(1, 1, 1, 0.34509805)
+energy = 3.0
+blend_mode = 2
+shadow_color = Color(0, 0, 0, 0.54901963)
+shadow_filter = 1
+shadow_filter_smooth = 5.0
+texture = SubResource("GradientTexture2D_kmqaj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

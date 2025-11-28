@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://f4258q1exjib"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl21tmvbt1i" path="res://Scenes/Level/levels.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://joh7abvhqbua" path="res://Scenes/Player/player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c7wpweohr6enw" path="res://Scenes/Enemy/enemy.tscn" id="3_8gbba"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Levels" parent="." instance=ExtResource("1_jjgbg")]
+
+[node name="Player" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(374, 596)
+collision_mask = 6
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("left_point", "right_point") instance=ExtResource("3_8gbba")]
+position = Vector2(595, 465)
+left_point = NodePath("../Limit/LeftPoint")
+right_point = NodePath("../Limit/RightPoint")
+
+[node name="Limit" type="Node2D" parent="."]
+
+[node name="LeftPoint" type="Marker2D" parent="Limit"]
+position = Vector2(400, 600)
+
+[node name="RightPoint" type="Marker2D" parent="Limit"]
+position = Vector2(800, 600)

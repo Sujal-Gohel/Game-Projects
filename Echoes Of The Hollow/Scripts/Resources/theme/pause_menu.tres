@@ -1,0 +1,82 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://b1vagqn5fqjuc"]
+
+[ext_resource type="FontFile" uid="uid://bjtoaaby76kjf" path="res://Assets/Texts/Cream Beige.otf" id="1_yh45l"]
+
+[sub_resource type="Gradient" id="Gradient_yh45l"]
+offsets = PackedFloat32Array(0.7, 1)
+colors = PackedColorArray(0, 0, 0, 0.74509805, 0.96862745, 0.96862745, 0.96862745, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c8yxy"]
+gradient = SubResource("Gradient_yh45l")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evg31"]
+texture = SubResource("GradientTexture2D_c8yxy")
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_oykix"]
+offsets = PackedFloat32Array(0.5, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 0.74509805, 1, 1, 0.9882353, 0.5019608, 1, 1, 0.98803645, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdnb7"]
+gradient = SubResource("Gradient_oykix")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_702e2"]
+texture = SubResource("GradientTexture2D_kdnb7")
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[sub_resource type="Gradient" id="Gradient_qyryt"]
+offsets = PackedFloat32Array(0.7, 1)
+colors = PackedColorArray(0, 0, 0, 0.74509805, 0.96862745, 0.96862745, 0.96862745, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_23me3"]
+gradient = SubResource("Gradient_qyryt")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_deree"]
+texture = SubResource("GradientTexture2D_23me3")
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_c8yxy"]
+offsets = PackedFloat32Array(0.5, 0.8, 1)
+colors = PackedColorArray(0, 0, 0, 0.74509805, 1, 1, 0.9882353, 1, 1, 1, 0.98803645, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_evg31"]
+gradient = SubResource("Gradient_c8yxy")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77n7s"]
+texture = SubResource("GradientTexture2D_evg31")
+expand_margin_left = 25.0
+expand_margin_right = 25.0
+
+[resource]
+Button/fonts/font = ExtResource("1_yh45l")
+Button/styles/focus = SubResource("StyleBoxTexture_evg31")
+Button/styles/hover = SubResource("StyleBoxTexture_702e2")
+Button/styles/normal = SubResource("StyleBoxTexture_deree")
+Button/styles/pressed = SubResource("StyleBoxTexture_77n7s")
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("1_yh45l")
